@@ -30,7 +30,7 @@ namespace InvManager
         {
             try
             {
-                StreamReader sReader = new StreamReader(@"C:\Users\..\Documents\" + fileName + ".txt");
+                StreamReader sReader = new StreamReader(@"..\" + fileName + ".txt");
                 while (!sReader.EndOfStream)
                 {
                     string line = sReader.ReadLine();
@@ -66,7 +66,14 @@ namespace InvManager
          */
         public void createFile(string fileName)
         {
-            File.Create(@"C:\Users\..\Documents\" + fileName + ".txt");
+            if (!File.Exists(@"..\" + fileName + ".txt")) 
+            { 
+                File.Create(@"..\" + fileName + ".txt");
+            }
+            else
+            {
+                MessageBox.Show("File already exists");
+            }
         }
 
         /**
@@ -248,8 +255,8 @@ namespace InvManager
         {
             try
             {
-                File.Delete(@"C:\Users\..\Documents\" + _fileName + ".txt");
-                StreamWriter sWriter = new StreamWriter(File.OpenWrite(@"C:\Users\..\Documents\" + _fileName + ".txt"));
+                File.Delete(@"..\" + _fileName + ".txt");
+                StreamWriter sWriter = new StreamWriter(File.OpenWrite(@"..\" + _fileName + ".txt"));
                 foreach (String[] array in conTable)
                 {
                     foreach (String item in array)
@@ -259,6 +266,8 @@ namespace InvManager
                     sWriter.WriteLine();
                 }
                 MessageBox.Show("File Saved Successfully", _fileName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                sWriter.Flush();
+                sWriter.Close();
             }
             catch (Exception ex)
             {

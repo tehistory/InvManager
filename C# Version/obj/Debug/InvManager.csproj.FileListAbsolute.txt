@@ -1,0 +1,12 @@
+D:\Git\InvManager\C# Version\bin\Debug\InvManager.exe.config
+D:\Git\InvManager\C# Version\bin\Debug\InvManager.exe
+D:\Git\InvManager\C# Version\bin\Debug\InvManager.pdb
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.csproj.AssemblyReference.cache
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.csproj.SuggestedBindingRedirects.cache
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.Form1.resources
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.Form2.resources
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.Properties.Resources.resources
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.csproj.GenerateResource.cache
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.csproj.CoreCompileInputs.cache
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.exe
+D:\Git\InvManager\C# Version\obj\Debug\InvManager.pdb
