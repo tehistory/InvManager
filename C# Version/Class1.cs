@@ -164,10 +164,14 @@ namespace InvManager
                         tempArray[i] = array[i];
                     }
                     tempArray[array.Length] = itemName;
-                    conTable.RemoveAt(index);
-                    conTable.Insert(index, tempArray);
+
+                    conTable[index] = tempArray;
+
+                    //conTable.RemoveAt(index);
+                    //conTable.Insert(index, tempArray);
                     success = true;
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error");
                 }
@@ -205,8 +209,11 @@ namespace InvManager
                         }
                     }
                     newArray = tempStr.Split(',');
-                    conTable.RemoveAt(index);
-                    conTable.Insert(index, newArray);
+
+                    conTable[index] = newArray;
+
+                    //conTable.RemoveAt(index);
+                    //conTable.Insert(index, newArray);
                     success = true;
                 }catch(Exception ex)
                 {
@@ -272,6 +279,51 @@ namespace InvManager
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        /**
+         * Sorts all of the item arrays in the conTable
+         * 
+         * @return void
+         */
+        public void SortArrays()
+        {
+            
+            try
+            {
+                foreach (String[] array in conTable)
+                {
+                    String[] sortedArray = new String[array.Length - 1];
+
+                    for(int i = 0; i<sortedArray.Length; i++)
+                    {
+                        sortedArray[i] = array[i + 1];
+                    }
+
+                    for(int i = 0; i < sortedArray.Length; i++)
+                    {
+                        for(int j = 0; j < sortedArray.Length - 1; j++)
+                        {
+                            string tempStr1 = sortedArray[j];
+                            string tempStr2 = sortedArray[j + 1];
+                            if (tempStr1[0] > tempStr2[0])
+                            {
+                                sortedArray[j] = tempStr2;
+                                sortedArray[j + 1] = tempStr1;
+                            }
+                        }
+                    }
+
+                    for(int i = 0; i < sortedArray.Length; i++)
+                    {
+                        array[i + 1] = sortedArray[i];
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error");
             }
         }
     }

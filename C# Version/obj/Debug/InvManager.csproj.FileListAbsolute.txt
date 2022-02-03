@@ -10,3 +10,14 @@ D:\Git\InvManager\C# Version\obj\Debug\InvManager.csproj.GenerateResource.cache
 D:\Git\InvManager\C# Version\obj\Debug\InvManager.csproj.CoreCompileInputs.cache
 D:\Git\InvManager\C# Version\obj\Debug\InvManager.exe
 D:\Git\InvManager\C# Version\obj\Debug\InvManager.pdb
+E:\GitVault\InvManager\C# Version\bin\Debug\InvManager.exe.config
+E:\GitVault\InvManager\C# Version\bin\Debug\InvManager.exe
+E:\GitVault\InvManager\C# Version\bin\Debug\InvManager.pdb
+E:\GitVault\InvManager\C# Version\obj\Debug\InvManager.csproj.AssemblyReference.cache
+E:\GitVault\InvManager\C# Version\obj\Debug\InvManager.Form1.resources
+E:\GitVault\InvManager\C# Version\obj\Debug\InvManager.Form2.resources
+E:\GitVault\InvManager\C# Version\obj\Debug\InvManager.Properties.Resources.resources
+E:\GitVault\InvManager\C# Version\obj\Debug\InvManager.csproj.GenerateResource.cache
+E:\GitVault\InvManager\C# Version\obj\Debug\InvManager.csproj.CoreCompileInputs.cache
+E:\GitVault\InvManager\C# Version\obj\Debug\InvManager.exe
+E:\GitVault\InvManager\C# Version\obj\Debug\InvManager.pdb

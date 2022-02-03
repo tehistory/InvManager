@@ -95,12 +95,13 @@ namespace InvManager
             //Add Item Button
             Form2 popUp = new Form2();
 
-            popUp.label1.Text = "Container: " + comboBox1.SelectedItem.ToString() + " Item Name: ";
+            popUp.label1.Text = "ADD ITEM: Container: " + comboBox1.SelectedItem.ToString() + " Item Name: ";
 
             if (popUp.ShowDialog() == DialogResult.OK)
             {
                 myData.addItem(comboBox1.SelectedItem.ToString(), popUp.textBox1.Text);
                 comboBox1.Update();
+                comboBox1_SelectedIndexChanged(this, e);
             }
         }
 
@@ -117,6 +118,30 @@ namespace InvManager
             }
 
             richTextBox1.Text = tempText;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Delete Item button
+            Form2 popUp = new Form2();
+
+            popUp.label1.Text = "DELETE ITEM: Container: " + comboBox1.SelectedItem.ToString() + " Item Name: ";
+
+            if (popUp.ShowDialog() == DialogResult.OK)
+            {
+                myData.subItem(comboBox1.SelectedItem.ToString(), popUp.textBox1.Text);
+                comboBox1.Update();
+                comboBox1_SelectedIndexChanged(this, e);
+            }
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //Sort All List Items Button
+            myData.SortArrays();
+            comboBox1.Update();
+            comboBox1_SelectedIndexChanged(this, e);
         }
     }
 }

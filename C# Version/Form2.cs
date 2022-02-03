@@ -41,5 +41,13 @@ namespace InvManager
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void Form2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == '\r')
+            {
+                button1_Click(this, e);
+            }
+        }
     }
 }
