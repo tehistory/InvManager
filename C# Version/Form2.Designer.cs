@@ -85,7 +85,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form2";
             this.Text = "Container Builder";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form2_KeyPress);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

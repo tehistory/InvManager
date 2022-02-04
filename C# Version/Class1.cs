@@ -151,7 +151,7 @@ namespace InvManager
         {
             //adds item to array under container conName
             bool success = false;
-            
+
             String[] array = getItems(conName);
             if (array != null)
             {
@@ -178,8 +178,9 @@ namespace InvManager
             }
             if (!success)
             {
-                MessageBox.Show("Container was not found, item was not added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Item was not added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         /**
@@ -205,7 +206,15 @@ namespace InvManager
                     {
                         if (array[i] != itemName)
                         {
-                            tempStr = tempStr + "," + array[i];
+                            if(i == 0)
+                            {
+                                tempStr = array[i];
+                            }
+                            else
+                            {
+                                tempStr = tempStr + "," + array[i];
+                            }
+                            
                         }
                     }
                     newArray = tempStr.Split(',');
@@ -266,9 +275,16 @@ namespace InvManager
                 StreamWriter sWriter = new StreamWriter(File.OpenWrite(@"..\" + _fileName + ".txt"));
                 foreach (String[] array in conTable)
                 {
-                    foreach (String item in array)
+                    for(int i = 0; i < array.Length; i++)
                     {
-                        sWriter.Write(item+',');
+                        if(i == array.Length - 1)
+                        {
+                            sWriter.Write(array[i]);
+                        }
+                        else
+                        {
+                            sWriter.Write(array[i] + ',');
+                        }
                     }
                     sWriter.WriteLine();
                 }

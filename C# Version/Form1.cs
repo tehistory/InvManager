@@ -32,6 +32,7 @@ namespace InvManager
 
             if(myData.loadFile(file))
             {
+                comboBox1.Items.Clear();
                 String[] tempArray = myData.getContainers();
                 for (int i = 0; i < tempArray.Length; i++)
                 {

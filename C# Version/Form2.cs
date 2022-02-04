@@ -42,11 +42,23 @@ namespace InvManager
             this.Close();
         }
 
-        private void Form2_KeyPress(object sender, KeyPressEventArgs e)
+        private void Form2_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyChar == '\r')
+            if (e.KeyCode == Keys.Return)
             {
-                button1_Click(this, e);
+                if (textBox1.Text == "")
+                {
+                    MessageBox.Show("The Container must have a name", "Error");
+                }
+                else if (textBox1.Text.Contains(','))
+                {
+                    MessageBox.Show("The name can not have a , in it", "Error");
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
         }
     }
