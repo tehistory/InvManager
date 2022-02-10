@@ -12,65 +12,37 @@ namespace InvManager
 {
     public partial class Form1 : Form
     {
-        DataHandler myData;
+        DataHandler myDataHandler;
         public Form1()
         {
-            myData = new DataHandler();
+            myDataHandler = new DataHandler();
             InitializeComponent();
+            comboBox1.Items.AddRange(myDataHandler.getContainers());
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Create File Button
-            myData.createFile(textBox1.Text);
-        }
+    //    //Load File Button
+    //    string file = textBox1.Text;
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Load File Button
-            string file = textBox1.Text;
+    //        if (myDataHandler.loadFile(file))
+    //        {
+    //            comboBox1.Items.Clear();
+    //            String[] tempArray = myDataHandler.getContainers();
+    //            for (int i = 0; i<tempArray.Length; i++)
+    //            {
+    //                comboBox1.Items.Add(tempArray[i]);
+    //            }
 
-            if(myData.loadFile(file))
-            {
-                comboBox1.Items.Clear();
-                String[] tempArray = myData.getContainers();
-                for (int i = 0; i < tempArray.Length; i++)
-                {
-                    comboBox1.Items.Add(tempArray[i]);
-                }
-
-                comboBox1.Update();
-                string tempText = label1.Text;
-                label1.Text = tempText + file;
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            //Save File Button
-            myData.SaveToFile();
-        }
+    //            comboBox1.Update();
+    //            string tempText = label1.Text;
+    //            label1.Text = tempText + file;
+    //        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string tempText = "--------------------------------------------------------\n";
+            
             try
             {
-                String[] itemArray = myData.getItems(comboBox1.SelectedItem.ToString());
-
-                if (itemArray == null)
-                {
-                    tempText = "Container doesn't Exist";
-                }
-                else
-                {
-                    for (int i = 1; i < itemArray.Length; i++)
-                    {
-                        tempText = tempText + itemArray[i] + '\n';
-                    }
-                }
-
-                richTextBox1.Text = tempText;
+                listBox1.DataSource = myDataHandler.getItems(comboBox1.SelectedItem.ToString());
 
             }
             catch (Exception ex)
@@ -86,7 +58,8 @@ namespace InvManager
 
             if(popUp.ShowDialog() == DialogResult.OK)
             {
-                myData.createContainer(popUp.textBox1.Text);
+                myDataHandler.createContainer(popUp.textBox1.Text);
+                comboBox1.Items.Add(popUp.textBox1.Text);
                 comboBox1.Update();
             }
         }
@@ -100,7 +73,7 @@ namespace InvManager
 
             if (popUp.ShowDialog() == DialogResult.OK)
             {
-                myData.addItem(comboBox1.SelectedItem.ToString(), popUp.textBox1.Text);
+                myDataHandler.addItem(comboBox1.SelectedItem.ToString(), popUp.textBox1.Text);
                 comboBox1.Update();
                 comboBox1_SelectedIndexChanged(this, e);
             }
@@ -109,28 +82,22 @@ namespace InvManager
         private void button3_Click(object sender, EventArgs e)
         {
             //Search button
-            String[] itemArray = myData.searchItem(textBox2.Text);
+            listBox1.DataSource = myDataHandler.searchItem(textBox2.Text);
 
-            string tempText = "Results \n --------------------------------------------------------\n";
-
-            for (int i = 1; i < itemArray.Length; i++)
-            {
-                tempText = tempText + itemArray[i] + '\n';
-            }
-
-            richTextBox1.Text = tempText;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             //Delete Item button
-            Form2 popUp = new Form2();
+            DeleteWin popUp = new DeleteWin();
 
-            popUp.label1.Text = "DELETE ITEM: Container: " + comboBox1.SelectedItem.ToString() + " Item Name: ";
+            //popUp.label1.Text = "DELETE ITEM: Container: " + comboBox1.SelectedItem.ToString() + " Item Name: ";
+
+            popUp.comboBox1.Items.AddRange(myDataHandler.getItems(comboBox1.SelectedItem.ToString()));
 
             if (popUp.ShowDialog() == DialogResult.OK)
             {
-                myData.subItem(comboBox1.SelectedItem.ToString(), popUp.textBox1.Text);
+                myDataHandler.subItem(comboBox1.SelectedItem.ToString(), popUp.comboBox1.SelectedItem.ToString());
                 comboBox1.Update();
                 comboBox1_SelectedIndexChanged(this, e);
             }
@@ -140,9 +107,10 @@ namespace InvManager
         private void button8_Click(object sender, EventArgs e)
         {
             //Sort All List Items Button
-            myData.SortArrays();
+            myDataHandler.SortArrays();
             comboBox1.Update();
             comboBox1_SelectedIndexChanged(this, e);
         }
+
     }
 }

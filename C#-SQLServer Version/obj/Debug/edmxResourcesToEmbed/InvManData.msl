@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InvManagerModelStoreContainer" CdmEntityContainer="InvManagerEntities">
+    <EntitySetMapping Name="ConTables">
+      <EntityTypeMapping TypeName="InvManagerModel.ConTable">
+        <MappingFragment StoreEntitySet="ConTable">
+          <ScalarProperty Name="ConID" ColumnName="ConID" />
+          <ScalarProperty Name="ConName" ColumnName="ConName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemTables">
+      <EntityTypeMapping TypeName="InvManagerModel.ItemTable">
+        <MappingFragment StoreEntitySet="ItemTable">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ConID" ColumnName="ConID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

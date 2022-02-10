@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InvManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ConTable">
+    <Key>
+      <PropertyRef Name="ConID" />
+    </Key>
+    <Property Name="ConID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemTables" Relationship="Self.FK__ItemTable__ConID__267ABA7A" FromRole="ConTable" ToRole="ItemTable" />
+  </EntityType>
+  <EntityType Name="ItemTable">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConID" Type="Int32" />
+    <NavigationProperty Name="ConTable" Relationship="Self.FK__ItemTable__ConID__267ABA7A" FromRole="ItemTable" ToRole="ConTable" />
+  </EntityType>
+  <Association Name="FK__ItemTable__ConID__267ABA7A">
+    <End Role="ConTable" Type="Self.ConTable" Multiplicity="0..1" />
+    <End Role="ItemTable" Type="Self.ItemTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConTable">
+        <PropertyRef Name="ConID" />
+      </Principal>
+      <Dependent Role="ItemTable">
+        <PropertyRef Name="ConID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InvManagerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ConTables" EntityType="Self.ConTable" />
+    <EntitySet Name="ItemTables" EntityType="Self.ItemTable" />
+    <AssociationSet Name="FK__ItemTable__ConID__267ABA7A" Association="Self.FK__ItemTable__ConID__267ABA7A">
+      <End Role="ConTable" EntitySet="ConTables" />
+      <End Role="ItemTable" EntitySet="ItemTables" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

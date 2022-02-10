@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InvManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ConTable">
+          <Key>
+            <PropertyRef Name="ConID" />
+          </Key>
+          <Property Name="ConID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ItemTable">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" />
+          <Property Name="ConID" Type="int" />
+        </EntityType>
+        <Association Name="FK__ItemTable__ConID__267ABA7A">
+          <End Role="ConTable" Type="Self.ConTable" Multiplicity="0..1" />
+          <End Role="ItemTable" Type="Self.ItemTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConTable">
+              <PropertyRef Name="ConID" />
+            </Principal>
+            <Dependent Role="ItemTable">
+              <PropertyRef Name="ConID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InvManagerModelStoreContainer">
+          <EntitySet Name="ConTable" EntityType="Self.ConTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemTable" EntityType="Self.ItemTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ItemTable__ConID__267ABA7A" Association="Self.FK__ItemTable__ConID__267ABA7A">
+            <End Role="ConTable" EntitySet="ConTable" />
+            <End Role="ItemTable" EntitySet="ItemTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InvManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ConTable">
+          <Key>
+            <PropertyRef Name="ConID" />
+          </Key>
+          <Property Name="ConID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ItemTables" Relationship="Self.FK__ItemTable__ConID__267ABA7A" FromRole="ConTable" ToRole="ItemTable" />
+        </EntityType>
+        <EntityType Name="ItemTable">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConID" Type="Int32" />
+          <NavigationProperty Name="ConTable" Relationship="Self.FK__ItemTable__ConID__267ABA7A" FromRole="ItemTable" ToRole="ConTable" />
+        </EntityType>
+        <Association Name="FK__ItemTable__ConID__267ABA7A">
+          <End Role="ConTable" Type="Self.ConTable" Multiplicity="0..1" />
+          <End Role="ItemTable" Type="Self.ItemTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConTable">
+              <PropertyRef Name="ConID" />
+            </Principal>
+            <Dependent Role="ItemTable">
+              <PropertyRef Name="ConID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InvManagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConTables" EntityType="Self.ConTable" />
+          <EntitySet Name="ItemTables" EntityType="Self.ItemTable" />
+          <AssociationSet Name="FK__ItemTable__ConID__267ABA7A" Association="Self.FK__ItemTable__ConID__267ABA7A">
+            <End Role="ConTable" EntitySet="ConTables" />
+            <End Role="ItemTable" EntitySet="ItemTables" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InvManagerModelStoreContainer" CdmEntityContainer="InvManagerEntities">
+          <EntitySetMapping Name="ConTables">
+            <EntityTypeMapping TypeName="InvManagerModel.ConTable">
+              <MappingFragment StoreEntitySet="ConTable">
+                <ScalarProperty Name="ConID" ColumnName="ConID" />
+                <ScalarProperty Name="ConName" ColumnName="ConName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTables">
+            <EntityTypeMapping TypeName="InvManagerModel.ItemTable">
+              <MappingFragment StoreEntitySet="ItemTable">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ConID" ColumnName="ConID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

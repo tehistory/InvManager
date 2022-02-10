@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace InvManager
 {
     public class DataHandler
     {
+        InvManagerEntities myData = new InvManagerEntities();
+
+
         private List<String[]> conTable = new List<String[]>();
         private string[] itemArray;
         private string _fileName = "";
@@ -86,18 +90,27 @@ namespace InvManager
         {
             bool exists = false;
 
-            foreach (String[] array in conTable)
+            var conN = from e in myData.ConTables select e.ConName;
+
+            foreach (var c in conN)
             {
-                if (array[0] == conName)
+                if (c == conName)
                 {
                     exists = true;
                     break;
                 }
             }
+
             if (!exists)
             {
-                string[] tempArray = new string[] { conName };
-                conTable.Add(tempArray);
+                ConTable temp = new ConTable();
+                temp.ConName = conName;
+                myData.ConTables.Add(temp);
+                myData.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Container already exists");
             }
         }
 
@@ -108,16 +121,9 @@ namespace InvManager
         */
         public String[] getContainers()
         {
-            String[] tempArray;
-            String[] outArray = new String[conTable.Count];
+            String[] outL = (from e in myData.ConTables select e.ConName).ToArray();
 
-            for (int i = 0; i < conTable.Count; i++)
-            {
-                tempArray = conTable[i];
-                outArray[i] = tempArray[0];
-            }
-
-            return outArray;
+            return outL;
         }
 
         /**
@@ -128,16 +134,9 @@ namespace InvManager
          */
         public String[] getItems(string conName)
         {
-            //returns items in container in a string Array, use displayArray method to output Array
-            foreach (String[] array in conTable)
-            {
-                if (array[0] == conName)
-                {
-                    return array;
-                }
-            }
-            //MessageBox.Show("Container not found");
-            return null;
+            String[] outL = (from e in myData.ConTables join f in myData.ItemTables on e.ConID equals f.ConID where e.ConName == conName orderby f.ItemName select f.ItemName).ToArray();
+
+            return outL;
         }
 
         /**
@@ -149,33 +148,25 @@ namespace InvManager
          */
         public void addItem(string conName, string itemName)
         {
-            //adds item to array under container conName
+            //adds item to table under container conName
             bool success = false;
 
-            String[] array = getItems(conName);
-            if (array != null)
+            try
             {
-                try
-                {
-                    int index = conTable.IndexOf(array);
-                    String[] tempArray = new String[array.Length + 1];
-                    for (int i = 0; i < array.Length; i++)
-                    {
-                        tempArray[i] = array[i];
-                    }
-                    tempArray[array.Length] = itemName;
+                List<int> id = (from e in myData.ConTables where e.ConName == conName select e.ConID).ToList();
 
-                    conTable[index] = tempArray;
-
-                    //conTable.RemoveAt(index);
-                    //conTable.Insert(index, tempArray);
-                    success = true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
+                ItemTable temp = new ItemTable();
+                temp.ItemName = itemName;
+                temp.ConID = id[0];
+                myData.ItemTables.Add(temp);
+                myData.SaveChanges();
+                success = true;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            
             if (!success)
             {
                 MessageBox.Show("Item was not added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -194,41 +185,18 @@ namespace InvManager
         {
             //subtracts item from file under container
             bool success = false;
-            string tempStr = "";
-
-            String[] array = getItems(conName);
-            if (array != null)
+            
+            try { 
+                List<int> PKey = (from e in myData.ConTables join f in myData.ItemTables on e.ConID equals f.ConID where f.ItemName == itemName && e.ConName == conName select f.ItemID).ToList();
+                var item = myData.ItemTables.Find(PKey[0]);
+                myData.ItemTables.Remove(item);
+                myData.SaveChanges();
+                success = true;
+            }catch(Exception ex)
             {
-                try { 
-                    int index = conTable.IndexOf(array);
-                    String[] newArray = new String[array.Length - 1];
-                    for (int i = 0; i < array.Length; i++)
-                    {
-                        if (array[i] != itemName)
-                        {
-                            if(i == 0)
-                            {
-                                tempStr = array[i];
-                            }
-                            else
-                            {
-                                tempStr = tempStr + "," + array[i];
-                            }
-                            
-                        }
-                    }
-                    newArray = tempStr.Split(',');
-
-                    conTable[index] = newArray;
-
-                    //conTable.RemoveAt(index);
-                    //conTable.Insert(index, newArray);
-                    success = true;
-                }catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
+                MessageBox.Show(ex.Message, "Error");
             }
+            
             if (!success)
             {
                 MessageBox.Show("Item or Container was not found, item was not deleted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -242,23 +210,39 @@ namespace InvManager
          * @param itemName the name of the item to search for
          * @return String[]
          */
-        public String[] searchItem(string itemName)
+        public List<string> searchItem(string itemName)
         {
             //loop through the item names for each container and call returnItem for each match
-            String[] outArray;
-            string tempStr = "";
+            List<string> outArray = new List<string>();
+            //string tempStr = "";
+
+            //foreach (String[] array in conTable)
+            //{
+            //    foreach (String item in array)
+            //    {
+            //        if (item.Contains(itemName))
+            //        {
+            //            tempStr = tempStr + "," + item + " - " + array[0];
+            //        }
+            //    }
+            //}
+            //outArray = tempStr.Split(',');
             
-            foreach (String[] array in conTable)
+
+            String[] itemArr = (from e in myData.ItemTables select e.ItemName).ToArray<string>();
+            
+            foreach (string item in itemArr)
             {
-                foreach (String item in array)
+                string lowStr = item.ToLower();
+                if (lowStr.Contains(itemName.ToLower()))
                 {
-                    if (item.Contains(itemName))
-                    {
-                        tempStr = tempStr + "," + item + " - " + array[0];
-                    }
+                    List<string> str1 = (from e in myData.ItemTables where e.ItemName == item select e.ItemName).ToList();
+                    List<string> str2 = (from e in myData.ConTables join f in myData.ItemTables on e.ConID equals f.ConID where f.ItemName == item select e.ConName).ToList();
+                    
+                    outArray.Add(str1[0] + "   " + str2[0]);
                 }
             }
-            outArray = tempStr.Split(',');
+            
             return outArray;
         }
 
