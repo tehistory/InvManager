@@ -48,7 +48,7 @@ namespace InvManager
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI Historic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(317, 112);
+            this.button2.Location = new System.Drawing.Point(309, 84);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 29);
             this.button2.TabIndex = 5;
@@ -59,7 +59,7 @@ namespace InvManager
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI Historic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(150, 112);
+            this.button1.Location = new System.Drawing.Point(152, 84);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 29);
             this.button1.TabIndex = 4;
@@ -79,7 +79,7 @@ namespace InvManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 153);
+            this.ClientSize = new System.Drawing.Size(585, 129);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

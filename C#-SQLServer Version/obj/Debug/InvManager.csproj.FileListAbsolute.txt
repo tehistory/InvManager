@@ -38,3 +38,11 @@ E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager.csproj.CopyComp
 E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager.exe
 E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager.pdb
 E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager.DeleteWin.resources
+E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\MainForm.g.cs
+E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager_Content.g.cs
+E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager_MarkupCompile.cache
+E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager_MarkupCompile.lref
+E:\GitVault\InvManager\C#-SQLServer Version\bin\Debug\MainForm.xaml.cs
+E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\MainForm.baml
+E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager.g.resources
+E:\GitVault\InvManager\C#-SQLServer Version\obj\Debug\InvManager.Form3.resources
