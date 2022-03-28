@@ -16,3 +16,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+input{
+    max-width: 400px;
+}
+
+#accountForm{
+    max-width: 400px;
+}
+
+.linkImage{
+    max-width:150px;
+    max-height: 150px;
+}

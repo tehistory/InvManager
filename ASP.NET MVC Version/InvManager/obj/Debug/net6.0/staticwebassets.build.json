@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cMBE5+NWgNrm0keX4y5WYpOCdz5MPSkFKoFtMafko8g=",
+  "Hash": "ZxA/iny7mnP8PjZ16t6BNF1KTi4Udo7NfcfVe1DkJZE=",
   "Source": "InvManager",
   "BasePath": "_content/InvManager",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\InventoryControllerClass.cs",
+      "SourceId": "InvManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\",
+      "BasePath": "_content/InvManager",
+      "RelativePath": "InventoryControllerClass.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\InventoryControllerClass.cs"
     },
     {
       "Identity": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\js\\site.js",
@@ -1069,6 +1086,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\Pictures\\roundGithubLogo.jpg",
+      "SourceId": "InvManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\",
+      "BasePath": "_content/InvManager",
+      "RelativePath": "Pictures/roundGithubLogo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pictures\\roundGithubLogo.jpg"
+    },
+    {
+      "Identity": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\Pictures\\roundLinkedInLogo.jpg",
+      "SourceId": "InvManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\",
+      "BasePath": "_content/InvManager",
+      "RelativePath": "Pictures/roundLinkedInLogo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pictures\\roundLinkedInLogo.jpg"
     }
   ]
 }
