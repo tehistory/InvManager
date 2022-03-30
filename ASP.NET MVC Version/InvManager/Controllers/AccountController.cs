@@ -1,10 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using InvManager.Models;
+using InvManager.Data;
 
 namespace InvManager.Controllers
 {
     public class AccountController : Controller
     {
+        private DBContext _dbContext;
+
+        public AccountController(DBContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         [HttpGet]
         public IActionResult SignInPage()
         {

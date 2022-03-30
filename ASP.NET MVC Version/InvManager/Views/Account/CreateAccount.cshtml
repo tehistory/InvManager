@@ -1,30 +1,32 @@
 ﻿@model InvManager.Models.AccountModel
 
-<div class="text-center" id="accountForm">
-    <h4>Create Account</h4>
-    <hr />
-    <form asp-action="CreateAccount">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="userName" class="control-label">Username</label>
-            <input asp-for="userName" class="form-control" />
-            <span asp-validation-for="userName" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="password" class="control-label">Password</label>
-            <input asp-for="password" class="form-control" />
-            <span asp-validation-for="password" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="email" class="control-label">Email</label>
-            <input asp-for="email" class="form-control" />
-            <span asp-validation-for="email" class="text-danger"></span>
-        </div>
-        <br />
-        <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-primary" />
-        </div>
-    </form>
+<div class="text-center" style="display:flex; justify-content:center; align-items:center;" id="accountForm">
+    <div>
+        <h4>Create Account</h4>
+        <hr />
+        <form asp-action="CreateAccount">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="userName" class="control-label">Username</label>
+                <input asp-for="userName" class="form-control" />
+                <span asp-validation-for="userName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label">Password</label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label">Email</label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
 </div>
 
 @section Scripts {
