@@ -8,10 +8,10 @@ namespace InvManager.Controllers
     {
         private IInventoryRepository _invRepository;
 
-        public InvViewController()
-        {
-            this._invRepository = new InventoryRespository(new DBContext());
-        }
+        //public InvViewController(DBContext _context)
+        //{
+        //    this._invRepository = new InventoryRespository(_context);
+        //}
 
         public InvViewController(IInventoryRepository inventoryRepository)
         {
@@ -19,7 +19,10 @@ namespace InvManager.Controllers
         }
         public IActionResult InvPage()
         {
-            return View();
+            CombinedModel tempMod = new CombinedModel();
+            tempMod.Containers = _invRepository.GetContainers();
+            tempMod.Items = _invRepository.GetItems();
+            return View(tempMod);
         }
 
         public IActionResult AddContainer()

@@ -8,10 +8,10 @@ namespace InvManager.Controllers
     {
         private IInventoryRepository _invRepository;
 
-        public AccountController()
-        {
-            this._invRepository = new InventoryRespository(new DBContext());
-        }
+        //public AccountController(DBContext _context)
+        //{
+        //    this._invRepository = new InventoryRespository(_context);
+        //}
 
         public AccountController(IInventoryRepository inventoryRepository)
         {

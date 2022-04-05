@@ -1,5 +1,5 @@
 ﻿
-@model InvManager.Views.InvView.ItemViewModel
+@model IEnumerable<ItemModel>
 
 <p>
     <!---<a asp-page="Create">Create New</a>--->
@@ -8,16 +8,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ItemModel[0].containerID)
+                <p>Container ID</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ItemModel[0].itemName)
+                <p>Item Name</p>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ItemModel) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.containerID)
@@ -26,9 +26,9 @@
                 @Html.DisplayFor(modelItem => item.itemName)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.itemID">Edit</a> |
+                @*<a asp-page="./Edit" asp-route-id="@item.itemID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.itemID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.itemID">Delete</a>
+                <a asp-page="./Delete" asp-route-id="@item.itemID">Delete</a>*@
             </td>
         </tr>
 }

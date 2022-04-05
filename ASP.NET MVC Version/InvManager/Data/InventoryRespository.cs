@@ -13,6 +13,7 @@ namespace InvManager.Data
         public InventoryRespository(DBContext context)
         {
             this._context = context;
+            
         }
 
         public IEnumerable<ContainerModel> GetContainers()

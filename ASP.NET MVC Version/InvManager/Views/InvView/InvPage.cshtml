@@ -3,12 +3,81 @@
 *@
 @{
 }
+@model CombinedModel
 
-<div>
 
-    <partial name="ConView" />
-    <partial name="ItemView" />
+<div style="display:flex;justify-content:center;align-items:center">
 
+   <div>
+        <p>
+            <!---<a asp-page="Create">Create New</a>--->
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <p>Container</p>
+                    </th>
+                    <th>
+                        <p>Account ID</p>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model.Containers) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.containerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.accountID)
+                    </td>
+                    <td>
+                        @*<a asp-page="./Edit" asp-route-id="@item.containerID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.containerID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.containerID">Delete</a>*@
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p>
+        <!---<a asp-page="Create">Create New</a>--->
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <p>Container ID</p>
+                    </th>
+                    <th>
+                        <p>Item Name</p>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model.Items) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.containerID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.itemName)
+                    </td>
+                    <td>
+                        @*<a asp-page="./Edit" asp-route-id="@item.itemID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.itemID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.itemID">Delete</a>*@
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
 
 </div>
 
