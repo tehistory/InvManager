@@ -8,6 +8,7 @@ namespace InvManager.Models
 {
     public class ItemModel
     {
+        [Key]
         public int itemID { get; set; }
         public int containerID { get; set; }
         [Required]

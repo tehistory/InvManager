@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "u5zXIKHdrixithuRA8Qq4yu8H6mujH/VcahVWr8/7rLZUlqVMqbFfqEJCb8pi5Tcczd8avVyylJMGGKpY3J0yw==",
+  "dgSpecHash": "J3GJPybKVYj3Sn0RSBBONVsZSCwSNfkNCyN+hdJG/VZweVZ9zjiROLnBVHbv1wblHqgbvltbYOEC728rJKFsnA==",
   "success": true,
   "projectFilePath": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\InvManager.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,7 @@
     "C:\\Users\\ftege\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.3\\microsoft.entityframeworkcore.design.6.0.3.nupkg.sha512",
     "C:\\Users\\ftege\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.3\\microsoft.entityframeworkcore.relational.6.0.3.nupkg.sha512",
     "C:\\Users\\ftege\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.3\\microsoft.entityframeworkcore.sqlserver.6.0.3.nupkg.sha512",
+    "C:\\Users\\ftege\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.3\\microsoft.entityframeworkcore.tools.6.0.3.nupkg.sha512",
     "C:\\Users\\ftege\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\ftege\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
     "C:\\Users\\ftege\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

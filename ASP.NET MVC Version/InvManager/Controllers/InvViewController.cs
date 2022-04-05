@@ -4,39 +4,30 @@ using InvManager.Data;
 
 namespace InvManager.Controllers
 {
-    public class AccountController : Controller
+    public class InvViewController : Controller
     {
         private IInventoryRepository _invRepository;
 
-        public AccountController()
+        public InvViewController()
         {
             this._invRepository = new InventoryRespository(new DBContext());
         }
 
-        public AccountController(IInventoryRepository inventoryRepository)
+        public InvViewController(IInventoryRepository inventoryRepository)
         {
             this._invRepository = inventoryRepository;
         }
-
-        [HttpGet]
-        public IActionResult SignInPage()
+        public IActionResult InvPage()
         {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult SignInPage(AccountModel account)
-        {
-            return View();
-        }
-        [HttpGet]
-        public IActionResult CreateAccount()
+        public IActionResult AddContainer()
         {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult CreateAccount(AccountModel account)
+        public IActionResult AddItem()
         {
             return View();
         }

@@ -8,6 +8,7 @@ namespace InvManager.Models
 {
     public class AccountModel
     {
+        [Key]
         public int accountID { get; set; }
         [Required]
         [MinLength(3)]
