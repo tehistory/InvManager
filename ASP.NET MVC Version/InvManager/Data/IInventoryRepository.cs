@@ -10,6 +10,7 @@ namespace InvManager.Data
         IEnumerable<ContainerModel> GetContainers();
         IEnumerable<ContainerModel> GetContainersByAccount(string accountID);
         void InsertContainer(ContainerModel container);
+        void EditContainer(ContainerModel container);
         void DeleteContainer(int conID);
         IEnumerable<ItemModel> GetItems();
         IEnumerable<ItemModel> GetItemsByConID(int containerID);

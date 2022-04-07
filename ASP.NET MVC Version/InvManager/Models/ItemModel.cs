@@ -13,6 +13,7 @@ namespace InvManager.Models
         public int containerID { get; set; }
         [Required]
         [StringLength(100)]
+        [Display(Name ="Item Name")]
         public string itemName { get; set; }
     }
 }

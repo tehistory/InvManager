@@ -1,21 +1,26 @@
-﻿@model ContainerModel; 
+﻿@model ContainerModel
 
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddContainer">
+        <form asp-action="EditContainer">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="containerID" />
             <div class="form-group">
                 <label asp-for="containerName" class="control-label"></label>
                 <input asp-for="containerName" class="form-control" />
                 <span asp-validation-for="containerName" class="text-danger"></span>
             </div>
-            
+            <input type="hidden" asp-for="accountID" />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

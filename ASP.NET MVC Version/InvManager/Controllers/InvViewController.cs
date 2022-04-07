@@ -23,6 +23,7 @@ namespace InvManager.Controllers
         }
 
         [Authorize()]
+        [HttpGet]
         public IActionResult InvPage()
         {
             CombinedModel tempMod = new CombinedModel();
@@ -43,8 +44,9 @@ namespace InvManager.Controllers
             return View(tempMod);
         }
 
-        [HttpGet]
-        public IActionResult InvPage(int conID)
+        [Authorize()]
+        [HttpGet("{Controller}/{Action}/{id}")]
+        public IActionResult InvPage(int id)
         {
             CombinedModel tempMod = new CombinedModel();
             try
@@ -57,7 +59,7 @@ namespace InvManager.Controllers
             }
             try
             {
-                tempMod.Items = _invRepository.GetItemsByConID(conID);
+                tempMod.Items = _invRepository.GetItemsByConID(id);
             }
             catch (Exception e)
             {
@@ -69,18 +71,54 @@ namespace InvManager.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddContainer(string conName)
+        public IActionResult AddContainer(string containerName)
         {
             ContainerModel newCon = new ContainerModel();
             newCon.accountID = _userManager.GetUserId(User);
-            newCon.containerName = conName;
+            newCon.containerName = containerName;
             _invRepository.InsertContainer(newCon);
-            return InvPage();
+            return RedirectToAction("InvPage");
         }
 
-        public IActionResult AddItem()
+        [HttpPost]
+        public IActionResult AddItem(int containerID, string itemName)
         {
-            return View();
+            ItemModel newItem = new ItemModel();
+            newItem.containerID = containerID;
+            newItem.itemName = itemName;
+            _invRepository.InsertItem(newItem);
+            return RedirectToAction("InvPage");
         }
+
+        public IActionResult DeleteItem(int id)
+        {
+            _invRepository.DeleteItem(id);
+
+            return RedirectToAction("InvPage");
+        }
+
+        public IActionResult DeleteCon(int id)
+        {
+            _invRepository.DeleteContainer(id);
+
+            return RedirectToAction("InvPage");
+        }
+
+        [HttpPost]
+        public IActionResult EditContainer(ContainerModel conMod)
+        {
+            _invRepository.EditContainer(conMod);
+
+            return RedirectToAction("InvPage");
+        }
+
+        [HttpPost]
+        public IActionResult EditItem(ItemModel itemMod)
+        {
+            _invRepository.EditItem(itemMod);
+
+            return RedirectToAction("InvPage");
+        }
+
     }
 }

@@ -33,6 +33,13 @@ namespace InvManager.Data
         public void InsertContainer(ContainerModel con)
         {
             _context.Add(con);
+            _context.SaveChanges();
+        }
+
+        public void EditContainer(ContainerModel con)
+        {
+            _context.Entry(con).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void DeleteContainer(int conID)
@@ -40,7 +47,13 @@ namespace InvManager.Data
             ContainerModel container = _context.Containers.Find(conID);
             if (container != null)
             {
+                var items = GetItemsByConID(conID);
+                foreach(var i in items)
+                {
+                    _context.Remove<ItemModel>(i);
+                }
                 _context.Remove<ContainerModel>(container);
+                _context.SaveChanges();
             }
             else
             {
@@ -65,11 +78,13 @@ namespace InvManager.Data
         public void InsertItem(ItemModel item)
         {
             _context.Add(item);
+            _context.SaveChanges();
         }
 
         public void EditItem(ItemModel item)
         {
             _context.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void DeleteItem(int itemID)
@@ -78,6 +93,7 @@ namespace InvManager.Data
             if (item != null)
             {
                 _context.Remove<ItemModel>(item);
+                _context.SaveChanges();
             }
             else
             {

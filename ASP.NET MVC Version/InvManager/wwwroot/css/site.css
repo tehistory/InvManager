@@ -34,3 +34,7 @@ input{
     min-width: 10%;
     max-width:30%;
 }
+
+.form-group{
+    margin:10px;
+}

@@ -31,9 +31,40 @@
                     {
                         <tr>
                             <td>
-                                <a asp-action="InvPage" asp-route-id="@item.containerID">@Html.DisplayFor(modelItem => item.containerName)</a>
+                                <a asp-action="InvPage" asp-route-id="@item.containerID">@Html.DisplayFor(modelItem => item.containerName)</a> 
+                                
                             </td>
                             <td>
+                                <a asp-controller="InvView" asp-action="DeleteCon" asp-route-id="@item.containerID">Delete</a> |
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editContainerModal">
+                                    Edit
+                                </button>
+
+                                <!-- Edit Container Modal -->
+                                <div class="modal fade" id="editContainerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Create New Container</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                                @{
+                                                    Model.conMod = new ContainerModel();
+                                                    Model.conMod.accountID = item.accountID;
+                                                    Model.conMod.containerID = item.containerID;
+                                                    Model.conMod.containerName = item.containerName;
+                                                }
+                                              @await Html.PartialAsync("EditContainer", Model.conMod)
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
                                 @*<a asp-page="./Edit" asp-route-id="@item.containerID">Edit</a> |
                                     <a asp-page="./Details" asp-route-id="@item.containerID">Details</a> |
                                     <a asp-page="./Delete" asp-route-id="@item.containerID">Delete</a>*@
@@ -79,6 +110,35 @@
                                 @Html.DisplayFor(modelItem => item.itemName)
                             </td>
                             <td>
+                                <a asp-controller="InvView" asp-action="DeleteItem" asp-route-id="@item.itemID">Delete</a> | 
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editItemModal">
+                                    Edit
+                                </button>
+
+                                <!-- Edit Container Modal -->
+                                <div class="modal fade" id="editItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Create New Container</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                                @{
+                                                    Model.itemMod = new ItemModel();
+                                                    Model.itemMod.itemID = item.itemID;
+                                                    Model.itemMod.containerID = item.containerID;
+                                                    Model.itemMod.itemName = item.itemName;
+                                                }
+                                              @await Html.PartialAsync("EditItem", Model.itemMod)
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                                 @*<a asp-page="./Edit" asp-route-id="@item.itemID">Edit</a> |
                                     <a asp-page="./Details" asp-route-id="@item.itemID">Details</a> |
                                     <a asp-page="./Delete" asp-route-id="@item.itemID">Delete</a>*@
@@ -104,7 +164,7 @@
 </div>
 
 
-<!-- Modal -->
+<!-- Add Item Modal -->
 <div class="modal fade" id="createItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -113,18 +173,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        @await Html.PartialAsync("AddItem", Model)
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- Modal -->
+<!-- Add Container Modal -->
 <div class="modal fade" id="createContainerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -137,8 +197,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        
       </div>
     </div>
   </div>
 </div>
+

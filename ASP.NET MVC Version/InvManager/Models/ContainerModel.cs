@@ -12,6 +12,7 @@ namespace InvManager.Models
         public int containerID { get; set; }
         [Required]
         [StringLength(50)]
+        [Display(Name="Container Name")]
         public string containerName { get; set; }
         public string accountID { get; set; }
     }
