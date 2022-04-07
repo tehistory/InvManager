@@ -29,3 +29,8 @@ input{
     max-width:150px;
     max-height: 150px;
 }
+
+#spacerHorizontal{
+    min-width: 10%;
+    max-width:30%;
+}

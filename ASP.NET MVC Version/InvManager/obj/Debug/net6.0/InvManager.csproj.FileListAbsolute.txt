@@ -13,6 +13,7 @@ E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.Build.Locator.dll
@@ -39,6 +40,7 @@ E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\bin\Debug\net6.0\Microsoft.Identity.Client.dll
@@ -253,6 +255,7 @@ E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\obj\Debug\net6.0\InvManage
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\obj\Debug\net6.0\InvManager.AssemblyInfoInputs.cache
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\obj\Debug\net6.0\InvManager.AssemblyInfo.cs
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\obj\Debug\net6.0\InvManager.csproj.CoreCompileInputs.cache
+E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\obj\Debug\net6.0\InvManager.MvcApplicationPartsAssemblyInfo.cs
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\obj\Debug\net6.0\InvManager.MvcApplicationPartsAssemblyInfo.cache
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\obj\Debug\net6.0\InvManager.RazorAssemblyInfo.cache
 E:\GitVault\InvManager\ASP.NET MVC Version\InvManager\obj\Debug\net6.0\InvManager.RazorAssemblyInfo.cs

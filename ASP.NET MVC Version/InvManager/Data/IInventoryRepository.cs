@@ -8,7 +8,7 @@ namespace InvManager.Data
     public interface IInventoryRepository : IDisposable
     {
         IEnumerable<ContainerModel> GetContainers();
-        IEnumerable<ContainerModel> GetContainersByAccount(int accountID);
+        IEnumerable<ContainerModel> GetContainersByAccount(string accountID);
         void InsertContainer(ContainerModel container);
         void DeleteContainer(int conID);
         IEnumerable<ItemModel> GetItems();

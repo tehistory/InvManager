@@ -1,9 +1,10 @@
 ﻿using InvManager.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvManager.Data
 {
-    public class DBContext : DbContext
+    public class DBContext : IdentityDbContext
     {
         public DBContext(DbContextOptions<DBContext> options) : base(options)
         {
@@ -18,7 +19,7 @@ namespace InvManager.Data
         {
             modelBuilder.Entity<AccountModel>().HasData(new AccountModel { accountID = 2, email = "", password = "password", userName = "test" });
             modelBuilder.Entity<AccountModel>().HasData(new AccountModel { accountID = 1, email = "ftegelhoff@gmail.com", password = "adminpassword1", userName = "admin" });
-            modelBuilder.Entity<ContainerModel>().HasData(new ContainerModel { accountID=1, containerID = 1, containerName = "TestCName"});
+            modelBuilder.Entity<ContainerModel>().HasData(new ContainerModel { accountID="1", containerID = 1, containerName = "TestCName"});
             modelBuilder.Entity<ItemModel>().HasData(new ItemModel { containerID = 1, itemID = 1, itemName = "test Item" });
             base.OnModelCreating(modelBuilder);
         }

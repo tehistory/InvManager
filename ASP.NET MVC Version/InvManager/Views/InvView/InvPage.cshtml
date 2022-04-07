@@ -11,6 +11,9 @@
    <div>
         <p>
             <!---<a asp-page="Create">Create New</a>--->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createContainerModal">
+                Create New Container
+            </button>
         </p>
         <table class="table">
             <thead>
@@ -18,41 +21,47 @@
                     <th>
                         <p>Container</p>
                     </th>
-                    <th>
-                        <p>Account ID</p>
-                    </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-        @foreach (var item in Model.Containers) {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.containerName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.accountID)
-                    </td>
-                    <td>
-                        @*<a asp-page="./Edit" asp-route-id="@item.containerID">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.containerID">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.containerID">Delete</a>*@
-                    </td>
-                </tr>
-        }
+                @try
+                {
+                    @foreach (var item in Model.Containers)
+                    {
+                        <tr>
+                            <td>
+                                <a asp-action="InvPage" asp-route-id="@item.containerID">@Html.DisplayFor(modelItem => item.containerName)</a>
+                            </td>
+                            <td>
+                                @*<a asp-page="./Edit" asp-route-id="@item.containerID">Edit</a> |
+                                    <a asp-page="./Details" asp-route-id="@item.containerID">Details</a> |
+                                    <a asp-page="./Delete" asp-route-id="@item.containerID">Delete</a>*@
+                            </td>
+                        </tr>
+                    }
+                }catch(Exception e)
+                {
+                    <tr>
+                        <td>
+                            No Container Found
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
+    <div id="spacerHorizontal"></div>
     <div>
         <p>
         <!---<a asp-page="Create">Create New</a>--->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createItemModal">
+                Create New Item
+            </button>
         </p>
         <table class="table">
             <thead>
                 <tr>
-                    <th>
-                        <p>Container ID</p>
-                    </th>
                     <th>
                         <p>Item Name</p>
                     </th>
@@ -60,25 +69,76 @@
                 </tr>
             </thead>
             <tbody>
-        @foreach (var item in Model.Items) {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.containerID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.itemName)
-                    </td>
-                    <td>
-                        @*<a asp-page="./Edit" asp-route-id="@item.itemID">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.itemID">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.itemID">Delete</a>*@
-                    </td>
-                </tr>
-        }
+                @try
+                {
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.itemName)
+                            </td>
+                            <td>
+                                @*<a asp-page="./Edit" asp-route-id="@item.itemID">Edit</a> |
+                                    <a asp-page="./Details" asp-route-id="@item.itemID">Details</a> |
+                                    <a asp-page="./Delete" asp-route-id="@item.itemID">Delete</a>*@
+                            </td>
+                        </tr>
+                    }
+                }catch(Exception e)
+                {
+                    <tr>
+                        <td>
+                            No Item Found
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
 
 </div>
 
+<div style="display:flex;justify-content:center;align-items:center">
 <a asp-area="" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="createItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create New Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="createContainerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create New Container</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+              @await Html.PartialAsync("AddContainer", Model.conMod)
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

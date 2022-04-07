@@ -20,7 +20,7 @@ namespace InvManager.Controllers
 
         //changes container of an item or adds it to the database if not present
         [HttpPut("{accountID}")]
-        public async Task<IActionResult> CheckItem(int accountID, ItemModel inItem)
+        public async Task<IActionResult> CheckItem(string accountID, ItemModel inItem)
         {
             IEnumerable<ContainerModel> conList = _invRepository.GetContainersByAccount(accountID);
             ContainerModel testModel = new ContainerModel();
@@ -62,7 +62,7 @@ namespace InvManager.Controllers
 
         //creates a new container if container doesn't exist
         [HttpPut("{accountID}")]
-        public async Task<IActionResult> CheckContainer(int accountID, ContainerModel inCon)
+        public async Task<IActionResult> CheckContainer(string accountID, ContainerModel inCon)
         {
             IEnumerable<ContainerModel> conList = _invRepository.GetContainersByAccount(accountID);
             if (conList.Contains<ContainerModel>(inCon))

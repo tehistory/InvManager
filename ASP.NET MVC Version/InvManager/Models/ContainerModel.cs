@@ -13,6 +13,6 @@ namespace InvManager.Models
         [Required]
         [StringLength(50)]
         public string containerName { get; set; }
-        public int accountID { get; set; }
+        public string accountID { get; set; }
     }
 }

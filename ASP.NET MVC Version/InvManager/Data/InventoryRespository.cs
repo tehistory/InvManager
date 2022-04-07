@@ -23,7 +23,7 @@ namespace InvManager.Data
             return ReturnContainers;
         }
 
-        public IEnumerable<ContainerModel> GetContainersByAccount(int id)
+        public IEnumerable<ContainerModel> GetContainersByAccount(string id)
         {
             IEnumerable<ContainerModel> ReturnContainers = from e in _context.Containers where e.accountID == id select e;
 
