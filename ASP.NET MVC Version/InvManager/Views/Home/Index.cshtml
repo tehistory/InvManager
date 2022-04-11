@@ -2,20 +2,52 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Frank's<br />Community website</h1>
-    <br />
-    <p>Description</p>
-    <br />
-    <h1>MEDIA LINKS</h1>
-    <br />
-    <a href = "https://www.linkedin.com/in/frank-t-egelhoff/"><img class="linkImage" src="Pictures\roundLinkedInLogo.jpg" alt="LinkedIn Profile"></a>
-    <a href = "https://github.com/tehistory"><img class="linkImage" src="Pictures\roundGithubLogo.jpg" alt="GitHub Profile"></a>
-    <br />
-    <h1 class="display-4"><u>Projects</u></h1>
-    <br />
-    <h4>Inventory Manager</h4>
-    <br />
-    <p>Description</p>
-    <p><a class="nav-link" asp-area="" asp-controller="InvView" asp-action="InvPage">Check It Out!</a></p>
+<h1 class="display-2" id="HeadLiner" style="text-align:center;margin:20px;"><b>Welcome to Frank's Community Website</b></h1>
+<div id="parentDiv">
+    <div class="text-center" id="mainDiv">
+        
+        <br />
+        <p class="child-centered">Below you will find links to my social media sites and project repositories. You will also find links to highlighted projects. On the right are the game servers I host!</p>
+        <br />
+        <h1 id="HeadLiner">MEDIA LINKS</h1>
+        <br />
+        <a href = "https://www.linkedin.com/in/frank-t-egelhoff/"><img class="linkImage" src="Pictures\roundLinkedInLogo.jpg" alt="LinkedIn Profile"></a>
+        <a href = "https://github.com/tehistory"><img class="linkImage" src="Pictures\roundGithubLogo.jpg" alt="GitHub Profile"></a>
+        <br />
+        <h1 class="display-4"><u>Projects</u></h1>
+        <br />
+        <div class="projectEntry">
+            <h3>Inventory Manager</h3>
+            <br />
+            <p>The simple easy to use application for managing your garage/closet/storage space. Completely free to use and no limits!</p>
+            <p><a class="nav-link" id="projectLink" asp-area="" asp-controller="InvView" asp-action="InvPage">Check It Out!</a></p>
+        </div>
+        <div class="projectEntry">
+            <h3>The Legend Of Big Iron</h3>
+            <br />
+            <p>My game demo I made as the cumulative C# project over the course of two weeks in March.</p>
+            <p><a class="nav-link" id="projectLink" href="">Check It Out!</a></p>
+        </div>
+    </div>
+    
+    <div class="text-center" id="sideDiv">
+        <h1 id="HeadLiner">DISCORD SERVER</h1>
+        <br />
+            <div class="projectEntry">
+                <h4>Coming Soon!</h4>
+                
+                <!--<p>A bastion of free speech where you can connect with others passionate about whatever game you are interested in!</p>-->
+                <p><a class="nav-link" href="">Hop On In!</a></p>
+            </div>
+        <br />
+        <h1 id="HeadLiner">GAME SERVERS</h1>
+        <br />
+            <div class="projectEntry">
+                <img class="serverImage" src="Pictures\Space_Engineers_Logo.png" alt="Space Engineers" />
+                
+                <p>A vanilla dedicated Space Engineers server currently being hosted on my laptop!</p>
+                <p>Server Name: Frank's Space Realm</p>
+                <p>Password: D!scord#1</p>
+            </div>
+    </div>
 </div>

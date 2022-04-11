@@ -2144,6 +2144,7 @@ progress {
 }
 .form-label {
   margin-bottom: 0.5rem;
+  color: black;
 }
 
 .col-form-label {
@@ -2167,9 +2168,9 @@ progress {
 }
 
 .form-text {
-  margin-top: 0.25rem;
-  font-size: 0.875em;
-  color: #6c757d;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #6C757D;
 }
 
 .form-control {

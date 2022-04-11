@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 @media (min-width: 768px) {
@@ -11,10 +11,17 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  width: 100%;
+}
+
+header{
+    background-color: lightcyan;
 }
 
 body {
-  margin-bottom: 60px;
+    background: linear-gradient(0deg, #5F7255, #1B360D), no-repeat;
+    color: white;
+    height: 100%;
 }
 
 input{
@@ -25,9 +32,10 @@ input{
     max-width: 400px;
 }
 
-.linkImage{
-    max-width:150px;
+.linkImage {
+    max-width: 150px;
     max-height: 150px;
+    border-radius: 50%;
 }
 
 #spacerHorizontal{
@@ -37,4 +45,62 @@ input{
 
 .form-group{
     margin:10px;
+}
+
+#HeadLiner{
+    
+}
+
+.projectEntry {
+    width: 70%;
+    margin: auto;
+    background-color: #7B563E;
+    border-radius: 40px;
+}
+
+.child-centered {
+    width: 50%;
+    margin: auto;
+}
+
+.projectLink{
+    font: 20px;
+}
+
+#mainDiv {
+    
+    width: 75%;
+}
+
+#sideDiv {
+    width: 25%;
+    background: linear-gradient(0deg, gray, black), no-repeat;
+    border-radius: 30px;
+    float: right;
+    padding-top:20px;
+}
+
+#parentDiv {
+    display: inline-flex;
+    margin: 0px;
+    width:100%;
+}
+
+.form-label{
+    color: black !important;
+}
+
+.modal-dialog {
+    color: black !important;
+}
+
+.InvTable {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.serverImage{
+    width: 80%;
+    
 }

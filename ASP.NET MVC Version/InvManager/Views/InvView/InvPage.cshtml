@@ -6,9 +6,9 @@
 @model CombinedModel
 
 
-<div style="display:flex;justify-content:center;align-items:center">
+<div style="display:flex;justify-content:center;align-items:center;">
 
-   <div>
+   <div class="InvTable">
         <p>
             <!---<a asp-page="Create">Create New</a>--->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createContainerModal">
@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th>
-                        <p>Container</p>
+                        <p>Containers</p>
                     </th>
                     <th></th>
                 </tr>
@@ -31,17 +31,17 @@
                     {
                         <tr>
                             <td>
-                                <a asp-action="InvPage" asp-route-id="@item.containerID">@Html.DisplayFor(modelItem => item.containerName)</a> 
+                                <a class="btn btn-primary" asp-action="InvPage" asp-route-id="@item.containerID">@Html.DisplayFor(modelItem => item.containerName)</a> 
                                 
                             </td>
                             <td>
-                                <a asp-controller="InvView" asp-action="DeleteCon" asp-route-id="@item.containerID">Delete</a> |
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editContainerModal">
+                                <a class="btn" asp-controller="InvView" asp-action="DeleteCon" asp-route-id="@item.containerID">Delete</a> |
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#@item.containerName">
                                     Edit
                                 </button>
 
                                 <!-- Edit Container Modal -->
-                                <div class="modal fade" id="editContainerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="@item.containerName" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -65,9 +65,6 @@
                                   </div>
                                 </div>
 
-                                @*<a asp-page="./Edit" asp-route-id="@item.containerID">Edit</a> |
-                                    <a asp-page="./Details" asp-route-id="@item.containerID">Details</a> |
-                                    <a asp-page="./Delete" asp-route-id="@item.containerID">Delete</a>*@
                             </td>
                         </tr>
                     }
@@ -83,7 +80,7 @@
         </table>
     </div>
     <div id="spacerHorizontal"></div>
-    <div>
+    <div class="InvTable">
         <p>
         <!---<a asp-page="Create">Create New</a>--->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createItemModal">
@@ -94,7 +91,7 @@
             <thead>
                 <tr>
                     <th>
-                        <p>Item Name</p>
+                        <p>Items</p>
                     </th>
                     <th></th>
                 </tr>
@@ -110,13 +107,13 @@
                                 @Html.DisplayFor(modelItem => item.itemName)
                             </td>
                             <td>
-                                <a asp-controller="InvView" asp-action="DeleteItem" asp-route-id="@item.itemID">Delete</a> | 
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editItemModal">
+                                <a class="btn" asp-controller="InvView" asp-action="DeleteItem" asp-route-id="@item.itemID">Delete</a> | 
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#@item.itemName">
                                     Edit
                                 </button>
 
                                 <!-- Edit Container Modal -->
-                                <div class="modal fade" id="editItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="@item.itemName" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -139,9 +136,7 @@
                                     </div>
                                   </div>
                                 </div>
-                                @*<a asp-page="./Edit" asp-route-id="@item.itemID">Edit</a> |
-                                    <a asp-page="./Details" asp-route-id="@item.itemID">Details</a> |
-                                    <a asp-page="./Delete" asp-route-id="@item.itemID">Delete</a>*@
+                                
                             </td>
                         </tr>
                     }
@@ -159,8 +154,8 @@
 
 </div>
 
-<div style="display:flex;justify-content:center;align-items:center">
-<a asp-area="" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+<div style="display:flex;justify-content:center;align-items:center;padding:20px;">
+<a class="btn-primary btn" asp-area="" asp-controller="Home" asp-action="Index">Back to Home Page</a>
 </div>
 
 

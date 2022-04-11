@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jz+KbHtK6Wv1OvV2P6OnN8ysk7ZF8kQW/QFgwxvvLaQ=",
+  "Hash": "R+32ReNci+7210tQcQ+t/C4KEk0SqcW7Kpo3N9ki1M4=",
   "Source": "InvManager",
   "BasePath": "_content/InvManager",
   "Mode": "Default",
@@ -2140,6 +2140,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pictures\\roundLinkedInLogo.jpg"
+    },
+    {
+      "Identity": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\Pictures\\Space_Engineers_Logo.png",
+      "SourceId": "InvManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\",
+      "BasePath": "_content/InvManager",
+      "RelativePath": "Pictures/Space_Engineers_Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pictures\\Space_Engineers_Logo.png"
     }
   ]
 }
