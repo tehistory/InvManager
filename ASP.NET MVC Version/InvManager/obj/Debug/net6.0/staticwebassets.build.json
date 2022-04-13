@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "R+32ReNci+7210tQcQ+t/C4KEk0SqcW7Kpo3N9ki1M4=",
+  "Hash": "C34EEfg7GeD/xmSbrWkvQA/eQVDed6iyc/C+Q2+QPXw=",
   "Source": "InvManager",
   "BasePath": "_content/InvManager",
   "Mode": "Default",
@@ -2157,6 +2157,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pictures\\Space_Engineers_Logo.png"
+    },
+    {
+      "Identity": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\Pictures\\TheLegendofBigIronDemoBanner.png",
+      "SourceId": "InvManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\GitVault\\InvManager\\ASP.NET MVC Version\\InvManager\\wwwroot\\",
+      "BasePath": "_content/InvManager",
+      "RelativePath": "Pictures/TheLegendofBigIronDemoBanner.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pictures\\TheLegendofBigIronDemoBanner.png"
     }
   ]
 }
